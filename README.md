@@ -1,4 +1,0 @@
-pyndsgest
-=========
-
-NDS roms manager
