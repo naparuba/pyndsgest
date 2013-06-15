@@ -1,7 +1,7 @@
 # parameter settings
 
 # Rep a parcourir (pas de / à la fin)
-repRoms=/media/sda4/data/Aloha!!!/Jeux/NDS/ROMS
+repRoms=/home/nap/D/Aloha!!!/Jeux/NDS/ROMS
 repFlash=/media/DSX/apps
 #repFlash=/tmp/tmp
 gamesList=games.obj

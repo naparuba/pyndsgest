@@ -1,5 +1,5 @@
 #!/usr/bin/python
-# -*- coding: utf8 -*-
+# -*- coding: utf-8 -*-
 
 
 import logging
@@ -25,8 +25,10 @@ logger.setLevel(logging.INFO)
 
 
 def writeInfo(msg):
+    print "INFO", msg
     logger.info(msg)
     sys.stderr.write(msg + '\n')
+    print "FIN INFO", msg
 
 def writeError(msg):
     logger.error(msg)

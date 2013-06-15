@@ -1,5 +1,5 @@
 #!/usr/bin/python
-# -*- coding: utf8 -*-
+# -*- coding: utf-8 -*-
 
 from threadStoper import *
 import threading
@@ -17,7 +17,8 @@ class XMLUpdater(threading.Thread):
         print "Je run XMLUpdater"
         self.app.setStateText("XmlDowloading in progress...")
         self.stoper = ThreadStoper()
-        
+
+        print "Go to getXmlDocument"
         document = getXmlDocument()
         self.app.c.games = createGameInfoListFromDocument(document)
         configuration = createConfigurationInfoFromDocument(document)

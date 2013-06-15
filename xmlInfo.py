@@ -1,5 +1,5 @@
 #!/usr/bin/python
-# -*- coding: utf8 -*-
+# -*- coding: utf-8 -*-
 
 #Parcoure le xml situe sur
 #http://www.advanscene.com/offline/datas/ADVANsCEne_NDS.zip

@@ -1,5 +1,5 @@
 #!/usr/bin/python
-# -*- coding: utf8 -*-
+# -*- coding: utf-8 -*-
 
 import sys, string, pickle, os, copy, threading
 #from qt import *
@@ -74,11 +74,6 @@ class app:
         self.win.setupUi(window)
 
         
-        #On initilise le singleton des lib
-        #self.lib = Librairies()
-
-        #print "Youhou2"
-        
         #On fait un test de changement d'adresse sur le label: pixmapLabel1
         fd = open("2a.png",'rb')
         buffer = fd.read()
@@ -97,6 +92,7 @@ class app:
 
         #print "Youhou3"
 
+        self.status_text = ''
         self.statusBar = self.win.statusbar
         #print self.statusBar.__dict__
         self.statusBar.showMessage('The application is launched')
@@ -187,8 +183,11 @@ class app:
         self.i.sauver()
     
 
-    #Est appele de temps en temps
+    # Est appele de temps en temps
     def periodicCall(self):
+        if self.status_text:
+            self.statusBar.showMessage(self.status_text)
+            self.status_text = ''
         if self.needRefresh:
             writeInfo("On a besoin de refresh, on le fait")
             self.trier()
@@ -197,9 +196,9 @@ class app:
     
     #Mettre la liste a jour
     def updateList(self):
-        #print "Debut update"
+        print "Debut update"
         self.win.liste.clear()
-        #print "After win.clear"
+        print "After win.clear"
         #il faut creer une liste de filtres
         filtres = self.getfiltres()
         #print "Filtres = %s" % filtres
@@ -214,7 +213,8 @@ class app:
             #listBoxItem = MyQListBoxText(string)
             #listBoxItem.setState(state)
             self.win.liste.addItem(listBoxItem)
-        #print "Fin update"
+        print "Fin update"
+
 
     #Cré les filtres suivants ce qu'a rentré l'utilisateur
     def getfiltres(self):
@@ -366,15 +366,16 @@ class app:
         
     def changedResearch(self):
         self.trier()
+
     
     def changedNote(self, i):
         self.c.game(self.index).note = i
         #writeInfo("Note changée en " + str(i))
+
         
     def setStateText(self,text):
-        self.statusBar.showMessage(text)
-        #self.statusBar.message(text)
-        #return 1
+        self.status_text = text
+
         
     def quitApplication(self):
         writeInfo("On quitte l'application")

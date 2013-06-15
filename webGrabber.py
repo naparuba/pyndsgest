@@ -1,5 +1,5 @@
 #!/usr/bin/python
-# -*- coding: utf8 -*-
+# -*- coding: utf-8 -*-
 
 from log import writeInfo, writeError
 
@@ -9,7 +9,7 @@ class WebGrabber(Singleton):
     g = None
     
     def __init__(self,config = {}):
-        self.gotLibUrlGrabber = True
+        self.gotLibUrlGrabber = False
         try:
             from urlgrabber.grabber import URLGrabber
         except:
@@ -33,6 +33,7 @@ class WebGrabber(Singleton):
             fd.write(urllib.urlopen(url).read())
             fd.close()
         else:
+            urllib.urlretrieve ("http://www.example.com/songs/mp3.mp3", "mp3.mp3")
             self.g.urlgrab(url, filename=dest)
 
 
